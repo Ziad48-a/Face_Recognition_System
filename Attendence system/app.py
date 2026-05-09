@@ -10,7 +10,6 @@ EMBEDDINGS = "embeddings.pkl"
 MODEL_PATH = "model.pkl"
 IMG_SIZE = (160, 160)
 
-# ── Database ─────────────────────────────────────────────────────────────────
 def get_connection():
     return mysql.connector.connect(
         host="localhost",
@@ -69,7 +68,6 @@ def load_attendance():
     conn.close()
     return df
 
-# ── Model ─────────────────────────────────────────────────────────────────────
 def load_model():
     with open(EMBEDDINGS, "rb") as f:
         embeddings = pickle.load(f)
@@ -127,7 +125,6 @@ def recognize(embedding, model, lda, threshold=0.6):
         return "Unknown", confidence
     return prediction, confidence
 
-# ── UI ────────────────────────────────────────────────────────────────────────
 init_db()
 
 st.title("Attendance System")
