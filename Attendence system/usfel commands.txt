@@ -1,0 +1,10 @@
+# ── Run the App ───────────────────────────────────────────────────────────────
+python -m streamlit run app.py
+
+# ── See the Data ──────────────────────────────────────────────────────────────
+mysql -u root -p1234 attendance_db
+SELECT * FROM attendance;
+
+# ── Drop the Data (keep the table) ───────────────────────────────────────────
+mysql -u root -p1234 attendance_db
+DELETE FROM attendance;
